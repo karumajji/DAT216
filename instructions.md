@@ -39,55 +39,55 @@ For instructions, see [Enabling and Disabling IAM Database Authentication.](http
 [Connect to your EC2 instance.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AccessingInstancesLinux.html) If your instance is using an Ubuntu or Amazon Linux Amazon Machine Image (AMI), follow these steps to install the MySQL server package:
 
 ### Ubuntu AMI
-1.    Run this command to install the MySQL package:
+1. Run this command to install the MySQL package:
 
-`$ sudo apt-get install mysql-server`
+   `$ sudo apt-get install mysql-server`
 
-2.    Run this command to set up a root password and to remove the insecure features from your installation:
+2. Run this command to set up a root password and to remove the insecure features from your installation:
 
-`$ sudo mysql_secure_installation`
+   `$ sudo mysql_secure_installation`
 
-3.    Run this command to start MySQL server at every boot:
+3. Run this command to start MySQL server at every boot:
 
-`$ sudo chkconfig mysqld on`
+   `$ sudo chkconfig mysqld on`
 
-4.    Run this command to start the MySQL server:
+4. Run this command to start the MySQL server:
 
-`$ sudo service mysqld start`
+   `$ sudo service mysqld start`
 
 ### Amazon Linux AMI
-1.    Run this command to install the MySQL package:
+1. Run this command to install the MySQL package:
 
-`$ sudo yum install mysql-server -y`
+   `$ sudo yum install mysql-server -y`
 
-2.    Run this command to set up a root password and to remove the insecure features from your installation:
+2. Run this command to set up a root password and to remove the insecure features from your installation:
 
-`$ sudo mysql_secure_installation`
+   `$ sudo mysql_secure_installation`
 
-3.    Run this command to start MySQL server at every boot:
+3. Run this command to start MySQL server at every boot:
 
-`$ sudo chkconfig mysqld on`
+   `$ sudo chkconfig mysqld on`
 
-4.    Run this command to start the MySQL server:
+4. Run this command to start the MySQL server:
 
-`$ sudo service mysqld start`
+   `$ sudo service mysqld start`
 
 ### Create a database user account that uses an AWS authentication token
-1.    From your EC2 instance, connect to the RDS DB instance by running this command. Be sure to enter the master password to log in.
+1. From your EC2 instance, connect to the RDS DB instance by running this command. Be sure to enter the master password to log in.
 
-`$ mysql -h {Instance endpoint} -u -u$DBUSER -p"$DBPASS"`
+   `$ mysql -h {Instance endpoint} -u -u$DBUSER -p"$DBPASS"`
 
-2.    Run this command to create a database user account that will use an AWS authentication token instead of a password:
+2. Run this command to create a database user account that will use an AWS authentication token instead of a password:
 
-`CREATE USER {dbusername} IDENTIFIED WITH AWSAuthenticationPlugin as 'RDS';`  
+   `CREATE USER {dbusername} IDENTIFIED WITH AWSAuthenticationPlugin as 'RDS';`  
 
-3.    Optionally, run this command to require the user to connect to the database using SSL:
+3. Optionally, run this command to require the user to connect to the database using SSL:
 
-`GRANT USAGE ON *.* TO '{dbusername}'@'%'REQUIRE SSL;`  
+   `GRANT USAGE ON *.* TO '{dbusername}'@'%'REQUIRE SSL;`  
 
-4.  Run, the below command to verify the user plugin and authentication: 
+4. Run, the below command to verify the user plugin and authentication: 
 
-`SELECT host, user, plugin, authentication_string FROM mysql.user;`  
+   `SELECT host, user, plugin, authentication_string FROM mysql.user;`  
 
 5.  Run the “exit” command to close MySQL. Then, log off from the instance.
 
@@ -121,16 +121,16 @@ For instructions, see [Enabling and Disabling IAM Database Authentication.](http
 After you connect to your EC2 instance, run the following AWS CLI command to [generate an authentication token.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.Connecting.AWSCLI.html#UsingWithRDS.IAMDBAuth.Connecting.AWSCLI.AuthToken) Copy and store the authentication token for later use.
 **Note:** This token expires within 15 minutes of creation.
 
-`$ aws rds generate-db-auth-token --hostname {db or cluster endpoint} --port 3306 --username {IAM user or instance profile}`
+   `$ aws rds generate-db-auth-token --hostname {db or cluster endpoint} --port 3306 --username {IAM user or instance profile}`
 
 ### Download the SSL root certificate file or certificate bundle file
 Run this command to download the root certificate that works for all regions:
 
-`$ wget https://s3.amazonaws.com/rds-downloads/rds-ca-2019-root.pem`
+   `$ wget https://s3.amazonaws.com/rds-downloads/rds-ca-2019-root.pem`
 
 If your application does not accept certificate chains, run the following command to download the certificate bundle that includes both the old and new root certificates:
 
-`$ wget https://s3.amazonaws.com/rds-downloads/rds-combined-ca-bundle.pem`
+   `$ wget https://s3.amazonaws.com/rds-downloads/rds-combined-ca-bundle.pem`
 
 **Note:** For Windows platform applications that need a PKCS7 file, see [Using SSL to Encrypt a Connection to a DB Instance](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html) to download the appropriate certificate.
 
