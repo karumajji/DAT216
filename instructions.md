@@ -150,6 +150,3 @@ After you download the certificate file, run the following command to connect to
 
 ### Related Information
 [IAM Database Authentication for MySQL and Amazon Aurora](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html)
-
-
-
