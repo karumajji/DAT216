@@ -22,7 +22,7 @@ To set up IAM database authentication using IAM roles, follow these steps:
 8.	Download the SSL root certificate file or certificate bundle file.
 9.	Connect to the RDS DB instance using IAM role credentials and the authentication token.
 
-Note: IAM database authentication is available only for certain database engines and instance types. For the list of supported engines and instances, see [Availability for IAM Database Authentication.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html#UsingWithRDS.IAMDBAuth.Availability)
+>Note: IAM database authentication is available only for certain database engines and instance types. For the list of supported engines and instances, see [Availability for IAM Database Authentication.](https://docs.aws.amazon.com/AmazonRDS>>>/latest/UserGuide/UsingWithRDS.IAMDBAuth.html#UsingWithRDS.IAMDBAuth.Availability)
 
 ### Prerequisites  
 Before you begin this procedure, be sure you have launched the following:
@@ -96,7 +96,7 @@ Note: Be sure to edit the "Resource" value with the details of your database res
 
 ### Generate an AWS authentication token to identify the IAM role
 After you connect to your EC2 instance, run the following AWS CLI command to generate an authentication token. Copy and store the authentication token for later use.
-Note: This token expires within 15 minutes of creation.
+>Note: This token expires within 15 minutes of creation.
 `$ aws rds generate-db-auth-token --hostname {db or cluster endpoint} --port 3306 --username {IAM user or instance profile}`
 
 ### Download the SSL root certificate file or certificate bundle file
@@ -104,14 +104,14 @@ Run this command to download the root certificate that works for all regions:
 `$ wget https://s3.amazonaws.com/rds-downloads/rds-ca-2019-root.pem`
 If your application does not accept certificate chains, run the following command to download the certificate bundle that includes both the old and new root certificates:
 `$ wget https://s3.amazonaws.com/rds-downloads/rds-combined-ca-bundle.pem`
-Note: For Windows platform applications that need a PKCS7 file, see Using SSL to Encrypt a Connection to a DB Instance to download the appropriate certificate.
+>Note: For Windows platform applications that need a PKCS7 file, see Using SSL to Encrypt a Connection to a DB Instance to download the appropriate certificate.
 
 ### Connect to the RDS DB instance using IAM role credentials and the authentication token
 After you download the certificate file, run the following command to connect to the RDS DB instance with SSL using the MySQL utility.
-Note: If you're connecting to instances in an Amazon Aurora DB cluster, you can connect to one of these endpoints: the cluster endpoint, the reader endpoint, or the instance endpoint.
-`$ echo RDSHOST="instanceEndpoint"`
-`$ echo TOKEN="$(aws rds generate-db-auth-token --hostname $RDSHOST --port 3306 --region us-west-2 --username dbusername)"`
-`$ mysql --host=$RDSHOST --port=3306 --ssl-ca=/home/ubuntu/rds-combined-ca-bundle.pem --enable-cleartext-plugin --user=dbusername --password=$TOKEN`
+>Note: If you're connecting to instances in an Amazon Aurora DB cluster, you can connect to one of these endpoints: the cluster endpoint, the reader endpoint, or the instance endpoint.
+   `$ echo RDSHOST="instanceEndpoint"`
+   `$ echo TOKEN="$(aws rds generate-db-auth-token --hostname $RDSHOST --port 3306 --region us-west-2 --username dbusername)"`
+   `$ mysql --host=$RDSHOST --port=3306 --ssl-ca=/home/ubuntu/rds-combined-ca-bundle.pem --enable-cleartext-plugin --user=dbusername --password=$TOKEN`
 
 ### Related Information
 IAM Database Authentication for MySQL and Amazon Aurora
