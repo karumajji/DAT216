@@ -127,13 +127,16 @@ After you connect to your EC2 instance, run the following AWS CLI command to [ge
 Run this command to download the root certificate that works for all regions:
 
 `$ wget https://s3.amazonaws.com/rds-downloads/rds-ca-2019-root.pem`
+
 If your application does not accept certificate chains, run the following command to download the certificate bundle that includes both the old and new root certificates:
 
 `$ wget https://s3.amazonaws.com/rds-downloads/rds-combined-ca-bundle.pem`
->**Note:** For Windows platform applications that need a PKCS7 file, see [Using SSL to Encrypt a Connection to a DB Instance](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html) to download the appropriate certificate.
+
+**Note:** For Windows platform applications that need a PKCS7 file, see [Using SSL to Encrypt a Connection to a DB Instance](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html) to download the appropriate certificate.
 
 ### Connect to the RDS DB instance using IAM role credentials and the authentication token
 After you download the certificate file, run the following command to connect to the RDS DB instance with SSL using the MySQL utility.
+
 **Note:** If you're connecting to instances in an Amazon Aurora DB cluster, you can connect to one of these endpoints: the cluster endpoint, the reader endpoint, or the instance endpoint.
    
    `$ echo RDSHOST="instanceEndpoint"`
