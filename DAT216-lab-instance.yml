@@ -3,7 +3,7 @@
 ## Infrastructure template with an RDS MySQL/MariaDB Instance for lab exercises
 ## This template will do the following
 ## 1. Creates an RDS MySQL 5.7 Instance 
-## 2. Enable IAM DB authentication on the RDS DB instance
+## 2. Enables IAM DB authentication on the RDS DB instance
 ## 3. Creates an EC2 Instance and installs the MySQL server package.
 ##
 ##
