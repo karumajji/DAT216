@@ -104,14 +104,14 @@ For instructions, see [Enabling and Disabling IAM Database Authentication.](http
 9.	Choose **Create Role**.
 
 ### Add an IAM policy that maps the database user to the IAM role
-1.	From the IAM role list, open your newly created IAM role.
+1. From the IAM role list, open your newly created IAM role.
 2.	Choose **Add inline policy**.
-3.	Enter the policy from [Creating and Using an IAM Policy for IAM Database Access.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.IAMPolicy.html) 
+3.	Enter the policy from [Creating and Using an IAM Policy for IAM Database Access.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.IAMPolicy.html)
 
        **Note:** Be sure to edit the "Resource" value with the details of your database resources, such as your DB instance identifier and database user name.
-4.	Choose **Review policy**.
-5.	For **Name**, type a policy name.
-6.	Choose **Create policy**.
+4. Choose **Review policy**.
+5. For **Name**, type a policy name.
+6. Choose **Create policy**.
 
 ### Attach the IAM role to the EC2 instance
 1.	Open the [Amazon EC2 console.](https://console.aws.amazon.com/ec2/)
