@@ -22,7 +22,7 @@ To set up IAM database authentication using IAM roles, follow these steps:
 8.	Download the SSL root certificate file or certificate bundle file.
 9.	Connect to the RDS DB instance using IAM role credentials and the authentication token.
 
->**Note:** IAM database authentication is available only for certain database engines and instance types. For the list of supported engines and instances, see [Availability for IAM Database Authentication.](https://docs.aws.amazon.com/AmazonRDS>>>/latest/UserGuide/UsingWithRDS.IAMDBAuth.html#UsingWithRDS.IAMDBAuth.Availability)
+**Note:** IAM database authentication is available only for certain database engines and instance types. For the list of supported engines and instances, see [Availability for IAM Database Authentication.](https://docs.aws.amazon.com/AmazonRDS>>>/latest/UserGuide/UsingWithRDS.IAMDBAuth.html#UsingWithRDS.IAMDBAuth.Availability)
 
 ### Prerequisites  
 Before you begin this procedure, be sure you have launched the following:
@@ -119,6 +119,7 @@ For instructions, see [Enabling and Disabling IAM Database Authentication.](http
 
 ### Generate an AWS authentication token to identify the IAM role
 After you connect to your EC2 instance, run the following AWS CLI command to [generate an authentication token.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.Connecting.AWSCLI.html#UsingWithRDS.IAMDBAuth.Connecting.AWSCLI.AuthToken) Copy and store the authentication token for later use.
+
 **Note:** This token expires within 15 minutes of creation.
 
    `$ aws rds generate-db-auth-token --hostname {db or cluster endpoint} --port 3306 --username {IAM user or instance profile}`
