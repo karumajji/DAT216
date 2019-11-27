@@ -78,7 +78,7 @@ For instructions, see [Enabling and Disabling IAM Database Authentication.](http
 ### Section 3. Create a database user account that uses an AWS authentication token
 1. From your EC2 instance, connect to the RDS DB instance by running this command. Be sure to enter the master password to log in.
 
-   `$ mysql -h {Instance endpoint} -u -u$DBUSER -p"$DBPASS"`
+   `$ mysql -h {Instance endpoint} -u$DBUSER -p"$DBPASS"`
 
 2. Run this command to create a database user account that will use an AWS authentication token instead of a password:
 
