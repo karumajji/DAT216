@@ -33,6 +33,7 @@ Before you begin this procedure, be sure you have launched the following:
 ### Enable IAM DB authentication on the RDS DB instance
 To enable IAM database authentication, you can use the AWS Management Console, AWS Command Line Interface (AWS CLI), or the Amazon RDS API.
 For instructions, see [Enabling and Disabling IAM Database Authentication.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.Enabling.html)
+
 **Note:** On the **Modify DB Instance** page, under **Maintenance**, you can select **Apply Immediately** to enable IAM database authentication immediately. Depending on other pending modifications, choosing **Apply Immediately** might cause downtime.
 
 ### Connect to an EC2 instance and install the MySQL server package
@@ -106,7 +107,9 @@ For instructions, see [Enabling and Disabling IAM Database Authentication.](http
 1.	From the IAM role list, open your newly created IAM role.
 2.	Choose **Add inline policy**.
 3.	Enter the policy from [Creating and Using an IAM Policy for IAM Database Access.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.IAMPolicy.html) 
+
 **Note:** Be sure to edit the "Resource" value with the details of your database resources, such as your DB instance identifier and database user name.
+
 4.	Choose **Review policy**.
 5.	For **Name**, type a policy name.
 6.	Choose **Create policy**.
