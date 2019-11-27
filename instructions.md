@@ -108,7 +108,7 @@ For instructions, see [Enabling and Disabling IAM Database Authentication.](http
 2.	Choose **Add inline policy**.
 3.	Enter the policy from [Creating and Using an IAM Policy for IAM Database Access.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.IAMPolicy.html) 
 
-**Note:** Be sure to edit the "Resource" value with the details of your database resources, such as your DB instance identifier and database user name.
+   **Note:** Be sure to edit the "Resource" value with the details of your database resources, such as your DB instance identifier and database user name.
 
 4.	Choose **Review policy**.
 5.	For **Name**, type a policy name.
