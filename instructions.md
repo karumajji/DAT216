@@ -144,9 +144,9 @@ After you download the certificate file, run the following command to connect to
 
 **Note:** If you're connecting to instances in an Amazon Aurora DB cluster, you can connect to one of these endpoints: the cluster endpoint, the reader endpoint, or the instance endpoint.
    
-   `$ echo RDSHOST="instanceEndpoint"`
+   `$ export RDSHOST="instanceEndpoint"`
    
-   `$ echo TOKEN="$(aws rds generate-db-auth-token --hostname $RDSHOST --port 3306 --region us-west-2 --username dbusername)"`
+   `$ export TOKEN="$(aws rds generate-db-auth-token --hostname $RDSHOST --port 3306 --region us-west-2 --username dbusername)"`
    
    `$ mysql --host=$RDSHOST --port=3306 --ssl-ca=/home/ubuntu/rds-combined-ca-bundle.pem --enable-cleartext-plugin --user=dbusername --password=$TOKEN`
 
